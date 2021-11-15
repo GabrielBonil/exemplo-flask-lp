@@ -7,17 +7,14 @@
 
     <div class="container">
 
-        <h2>Novo Paciente</h2>
+        <h2>Pesquisar</h2>
 
-        <form action="/save" method="POST">
+        <form action="/pesquisa" method="POST">
             <input type="text" class="form-control" name="nome"/>
-            <input type="text" class="form-control" name="forma"/>
-            <input type="text" class="form-control" name="status"/>
-            <a href="/"><button class="btn btn-primary">Salvar</button></a>
         </form>
 
-        <br/>
-        
+       
+        <a href="/resultado"><button class="btn btn-primary">Pesquisar</button></a>
         <a href="/" class="btn btn-danger">Voltar</a>
     </div>
 

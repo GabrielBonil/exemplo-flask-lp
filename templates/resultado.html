@@ -17,19 +17,16 @@
                   <th scope="col">Status</th>
                 </tr>
               </thead>
-            {% for pagamento in lista: %}
-            <tr>
-                <td>{{ pagamento['texto'] }}</td>
-                <td>{{ pagamento['forma'] }} </td>
-                <td>{{ pagamento['status']}}</td>
-            </tr>
-            {% endfor %}
-
+              {% for resultado in lista2: %}
+              <tr>
+                  <td>{{ resultado['texto'] }}</td>
+                  <td>{{ resultado['forma'] }} </td>
+                  <td>{{ resultado['status']}}</td>
+              </tr>
+              {% endfor %}
         </table>
 
-        <a href="/create" class="btn btn-primary">Adicionar</a>
-        <a href="/delete" class="btn btn-danger">Deletar</a>
-        <a href="/pesquisa" class="btn btn-success">Pesquisar</a>
+        <a href="/" class="btn btn-primary">Voltar</a>
     </div>
 
 </body>
