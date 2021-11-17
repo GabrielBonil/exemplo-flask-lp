@@ -13,6 +13,10 @@ pagamentos = [
     {"texto": "Chris Hemsworth", "forma": "Boleto", "status":"Pendente" },
 ]
 
+resultados = [
+   
+]
+
 @app.route('/')
 def index():
     return render_template('index.html', lista=pagamentos)
@@ -31,7 +35,7 @@ def pesquisa():
 
 @app.route('/resultado')
 def resultado():
-    return render_template('resultado.html')
+    return render_template('resultado.html', lista2=resultados)
 
 @app.route('/save', methods=['POST'])  # <form action="/save" method="POST">
 def save():
@@ -42,7 +46,7 @@ def save():
     pagamento = { "texto": nome, "forma": forma, "status": status }
     pagamentos.append(pagamento)
 
-    return redirect('https://5000-purple-boar-2j6fkdwx.ws-us18.gitpod.io/')
+    return redirect('https://5000-yellow-takin-c4wlndlh.ws-us18.gitpod.io/')
 
 @app.route('/del', methods=['POST'])  # <form action="/save" method="POST">
 def apagar():
@@ -55,19 +59,24 @@ def apagar():
             del pagamentos[a]
         a += 1
 
-    return redirect('https://5000-purple-boar-2j6fkdwx.ws-us18.gitpod.io/')
+    return redirect('https://5000-yellow-takin-c4wlndlh.ws-us18.gitpod.io/')
 
-@app.route('/pesquisa', methods=['POST'])  # <form action="/save" method="POST">
+@app.route('/busca', methods=['POST'])  # <form action="/save" method="POST">
 def busca():
+    resultados.clear()
     nome = request.form['nome']      # <input name="nome"/>
     a = 0
-    resultado = []
     for i in pagamentos:
         if i["texto"] == nome:
-            resultado.append(pagamentos[a])
+            nome = i["texto"]
+            forma = i["forma"]
+            status = i["status"]
+
+            resultado_pesquisa = { "texto": nome, "forma": forma, "status": status }
+            resultados.append(resultado_pesquisa)
         a += 1
     
-    return redirect('https://5000-purple-boar-2j6fkdwx.ws-us18.gitpod.io/resultado')
+    return redirect('https://5000-yellow-takin-c4wlndlh.ws-us18.gitpod.io/resultado')
 
 app.run(debug=True)
 
