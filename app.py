@@ -3,8 +3,6 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 pagamentos = [     
-    {"texto": "Pedro Henrique","forma": "Dinheiro", "status":"Pendente"},
-    {"texto": "Gabriel Bonil","forma": "Cartão", "status":"Pago" },
     {"texto": "Robert John Downey, Jr", "forma": "Bitcoin", "status":"Pendente"},
     {"texto": "Cris Evans", "forma": "Cheque" , "status":"Pago"},
     {"texto": "Mark Ruffalo", "forma": "Pix", "status":"Pendente" },
@@ -46,7 +44,7 @@ def save():
     pagamento = { "texto": nome, "forma": forma, "status": status }
     pagamentos.append(pagamento)
 
-    return redirect('https://5000-yellow-takin-c4wlndlh.ws-us18.gitpod.io/')
+    return redirect('https://5000-tan-hedgehog-00ickhj1.ws-us18.gitpod.io/')
 
 @app.route('/del', methods=['POST'])  # <form action="/save" method="POST">
 def apagar():
@@ -59,7 +57,7 @@ def apagar():
             del pagamentos[a]
         a += 1
 
-    return redirect('https://5000-yellow-takin-c4wlndlh.ws-us18.gitpod.io/')
+    return redirect('https://5000-tan-hedgehog-00ickhj1.ws-us18.gitpod.io/')
 
 @app.route('/busca', methods=['POST'])  # <form action="/save" method="POST">
 def busca():
@@ -76,7 +74,7 @@ def busca():
             resultados.append(resultado_pesquisa)
         a += 1
     
-    return redirect('https://5000-yellow-takin-c4wlndlh.ws-us18.gitpod.io/resultado')
+    return redirect('https://5000-tan-hedgehog-00ickhj1.ws-us18.gitpod.io/resultado')
 
 app.run(debug=True)
 
