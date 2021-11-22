@@ -35,26 +35,24 @@ def save():
     pagamento = { "texto": nome, "forma": forma, "status": status }
     pagamentos.append(pagamento)
 
-    return redirect('https://5000-aquamarine-eagle-wwwt4csm.ws-us18.gitpod.io/')
+    return redirect('https://5000-ivory-guppy-fp9ljqbl.ws-us17.gitpod.io/')
 
 @app.route('/del', methods=['POST'])  # <form action="/save" method="POST">
 def apagar():
     nome = request.form['nome']      # <input name="nome"/>
     numero = 0
+    i1 = 0
 
     for i in pagamentos:
-        if i["texto"] == nome:
-            numero += 1
+        numero += 1
 
-    while numero > 0:
-        a = 0
-        for i in pagamentos:
-            if i["texto"] == nome:
-                del pagamentos[a]
-                numero -= 1
-            a += 1
+    for i in range(numero):
+        if pagamentos[i1]["texto"] == nome:
+            del pagamentos[i1]
+            i1 -= 1
+        i1 += 1
 
-    return redirect('https://5000-aquamarine-eagle-wwwt4csm.ws-us18.gitpod.io/')
+    return redirect('https://5000-ivory-guppy-fp9ljqbl.ws-us17.gitpod.io/')
 
 @app.route('/busca', methods=['POST'])  # <form action="/save" method="POST">
 def busca():
@@ -71,7 +69,7 @@ def busca():
             resultados.append(resultado_pesquisa)
         a += 1
     
-    return redirect('https://5000-aquamarine-eagle-wwwt4csm.ws-us18.gitpod.io/resultado')
+    return redirect('https://5000-ivory-guppy-fp9ljqbl.ws-us17.gitpod.io/resultado')
 
 app.run(debug=True)
 
