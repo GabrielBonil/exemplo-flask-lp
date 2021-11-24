@@ -35,7 +35,7 @@ def save():
     pagamento = { "texto": nome, "forma": forma, "status": status }
     pagamentos.append(pagamento)
 
-    return redirect('https://5000-ivory-guppy-fp9ljqbl.ws-us17.gitpod.io/')
+    return redirect('https://5000-aqua-meerkat-684qbl2o.ws-us17.gitpod.io/')
 
 @app.route('/del', methods=['POST'])  # <form action="/save" method="POST">
 def apagar():
@@ -47,12 +47,12 @@ def apagar():
         numero += 1
 
     for i in range(numero):
-        if pagamentos[i1]["texto"] == nome:
+        if pagamentos[i1]["texto"].lower() == nome.lower():
             del pagamentos[i1]
             i1 -= 1
         i1 += 1
 
-    return redirect('https://5000-ivory-guppy-fp9ljqbl.ws-us17.gitpod.io/')
+    return redirect('https://5000-aqua-meerkat-684qbl2o.ws-us17.gitpod.io/')
 
 @app.route('/busca', methods=['POST'])  # <form action="/save" method="POST">
 def busca():
@@ -60,7 +60,7 @@ def busca():
     nome2 = request.form['nome']      # <input name="nome"/>
     a = 0
     for i in pagamentos:
-        if nome2 in i["texto"]:
+        if nome2.lower() in i["texto"].lower():
             nome = i["texto"]
             forma = i["forma"]
             status = i["status"]
@@ -69,7 +69,7 @@ def busca():
             resultados.append(resultado_pesquisa)
         a += 1
     
-    return redirect('https://5000-ivory-guppy-fp9ljqbl.ws-us17.gitpod.io/resultado')
+    return redirect('https://5000-aqua-meerkat-684qbl2o.ws-us17.gitpod.io/resultado')
 
 app.run(debug=True)
 
