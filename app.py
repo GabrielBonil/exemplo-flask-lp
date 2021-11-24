@@ -40,11 +40,8 @@ def save():
 @app.route('/del', methods=['POST'])  # <form action="/save" method="POST">
 def apagar():
     nome = request.form['nome']      # <input name="nome"/>
-    numero = 0
     i1 = 0
-
-    for i in pagamentos:
-        numero += 1
+    numero = len(pagamentos)
 
     for i in range(numero):
         if pagamentos[i1]["texto"].lower() == nome.lower():
